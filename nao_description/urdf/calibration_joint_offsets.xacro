@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <robot>
+<!-- head joint offsets -->
 <property name="HeadPitch_p" value="0" />
 <property name="HeadPitch_r" value="0" />
 <property name="HeadPitch_y" value="0" />
 <property name="HeadYaw_p" value="0" />
 <property name="HeadYaw_r" value="0" />
 <property name="HeadYaw_y" value="0" />
+
+<!-- left arm joint offsets -->
 <property name="LElbowRoll_p" value="0" />
 <property name="LElbowRoll_r" value="0" />
 <property name="LElbowRoll_y" value="0" />
@@ -18,6 +21,8 @@
 <property name="LShoulderRoll_p" value="0" />
 <property name="LShoulderRoll_r" value="0" />
 <property name="LShoulderRoll_y" value="0" />
+
+<!-- right arm joint offsets -->
 <property name="RElbowRoll_p" value="0" />
 <property name="RElbowRoll_r" value="0" />
 <property name="RElbowRoll_y" value="0" />
@@ -30,4 +35,39 @@
 <property name="RShoulderRoll_p" value="0" />
 <property name="RShoulderRoll_r" value="0" />
 <property name="RShoulderRoll_y" value="0" />
+
+<!-- left leg joint offsets -->
+<property name="LHipYawPitch_r" value="0" />
+<property name="LHipYawPitch_p" value="0" />
+<property name="LHipYawPitch_y" value="0" />
+<property name="LHipPitch_r" value="0" />
+<property name="LHipPitch_p" value="0" />
+<property name="LHipPitch_y" value="0" />
+<property name="LKneePitch_r" value="0" />
+<property name="LKneePitch_p" value="0" />
+<property name="LKneePitch_y" value="0" />
+<property name="LAnklePitch_r" value="0" />
+<property name="LAnklePitch_p" value="0" />
+<property name="LAnklePitch_y" value="0" />
+<property name="LHipRoll_r" value="0" />
+<property name="LHipRoll_p" value="0" />
+<property name="LHipRoll_y" value="0" />
+
+<!-- left leg joint offsets -->
+<property name="RHipYawPitch_r" value="0" />
+<property name="RHipYawPitch_p" value="0" />
+<property name="RHipYawPitch_y" value="0" />
+<property name="RHipPitch_r" value="0" />
+<property name="RHipPitch_p" value="0" />
+<property name="RHipPitch_y" value="0" />
+<property name="RKneePitch_r" value="0" />
+<property name="RKneePitch_p" value="0" />
+<property name="RKneePitch_y" value="0" />
+<property name="RAnklePitch_r" value="0" />
+<property name="RAnklePitch_p" value="0" />
+<property name="RAnklePitch_y" value="0" />
+<property name="RHipRoll_r" value="0" />
+<property name="RHipRoll_p" value="0" />
+<property name="RHipRoll_y" value="0" />
+
 </robot>

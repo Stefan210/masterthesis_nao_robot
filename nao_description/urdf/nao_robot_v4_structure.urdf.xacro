@@ -351,25 +351,25 @@
   <joint name="LHipYawPitch" type="revolute">
     <parent link="torso"/>
     <child link="LHipYawPitch_link"/>
-    <origin xyz="0 0.05 -0.085" rpy="0 0 0"/>
+    <origin xyz="0 0.05 -0.085" rpy="0 ${LHipYawPitch_p} ${LHipYawPitch_y}"/>
     <axis xyz="0 0.707106 -0.707106"/>
     <limit velocity="3.0" effort="30" lower="-1.145303" upper="0.740810"/>
   </joint>
   <joint name="RHipYawPitch" type="revolute">
     <parent link="torso"/>
     <child link="RHipYawPitch_link"/>
-    <origin xyz="0 -0.05 -0.085" rpy="0 0 0"/>
+    <origin xyz="0 -0.05 -0.085" rpy="0 ${RHipYawPitch_p} ${RHipYawPitch_y}"/>
     <axis xyz="0 0.707106 0.707106"/>
     <limit velocity="3.0" effort="30" lower="-1.145303" upper="0.740810"/>
     <mimic joint="LHipYawPitch" multiplier="1" offset="0"/>
   </joint>  
   
   
-  <xacro:macro name="leg_joints" params="side reflect">
+  <xacro:macro name="leg_joints" params="side reflect HipPitch_p KneePitch_p AnklePitch_p">
   <joint name="${side}HipPitch" type="revolute">
     <parent link="${side}HipRoll_link"/>
     <child link="${side}HipPitch_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="0 ${HipPitch_p} 0"/>
     <axis xyz="0 1 0"/>
     <!--Nao V3 and V4-->
     <!-- LHipPitch limits: -1.773912 .. 0.484090 -->
@@ -380,7 +380,7 @@
   <joint name="${side}KneePitch" type="revolute">
     <parent link="${side}HipPitch_link"/>
     <child link="${side}KneePitch_link"/>
-    <origin xyz="0 0 -0.1" rpy="0 0 0"/>
+    <origin xyz="0 0 -0.1" rpy="0 ${KneePitch_p} 0"/>
     <axis xyz="0 1 0"/>
     <!-- LKneePitch limits: -0.092346 .. 2.112528 -->
     <!-- RKneePitch limits: -0.103083 .. 2.120198 -->
@@ -390,7 +390,7 @@
   <joint name="${side}AnklePitch" type="revolute">
     <parent link="${side}KneePitch_link"/>
     <child link="${side}AnklePitch_link"/>
-    <origin xyz="0 0 -0.10290" rpy="0 0 0"/>
+    <origin xyz="0 0 -0.10290" rpy="0 ${AnklePitch_p} 0"/>
     <axis xyz="0 1 0"/>
     <!-- LAnklePitch limits: -1.189516 .. 0.922747 -->
     <!-- RAnklePitch limits: -1.186448 .. 0.932056 -->
@@ -401,14 +401,14 @@
   <joint name="LHipRoll" type="revolute">
     <parent link="LHipYawPitch_link"/>
     <child link="LHipRoll_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="${LHipRoll_r} 0 0"/>
     <axis xyz="1 0 0"/>
     <limit velocity="3.0" effort="30" lower="-0.379472" upper="0.790477"/>
   </joint>  
   <joint name="RHipRoll" type="revolute">
     <parent link="RHipYawPitch_link"/>
     <child link="RHipRoll_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0" rpy="${RHipRoll_r} 0 0"/>
     <axis xyz="1 0 0"/>
     <limit velocity="3.0" effort="30" lower="-0.738321" upper="0.414754"/>
   </joint>  
@@ -450,7 +450,7 @@
   </joint>
 
   
-  <xacro:leg_joints side="L" reflect="-1"/>
-  <xacro:leg_joints side="R" reflect="1"/> 
+  <xacro:leg_joints side="L" reflect="-1" HipPitch_p="${LHipPitch_p}" KneePitch_p="${LKneePitch_p}" AnklePitch_p="${LAnklePitch_p}" />
+  <xacro:leg_joints side="R" reflect="1" HipPitch_p="${RHipPitch_p}" KneePitch_p="${RKneePitch_p}" AnklePitch_p="${RAnklePitch_p}" /> 
   
 </robot>
